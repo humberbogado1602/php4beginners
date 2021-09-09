@@ -1,7 +1,5 @@
 <?php 
 
-$name = htmlspecialchars($_GET['name']);
-$surname = htmlspecialchars($_GET['surname']);
-$greeting = "Hello, $name $surname";
+$names = ['John','Mary','Lucas'];
 
-require 'index.view.php'; /* de esta forma hacemos la referencia para que la vista haga a la variable */
+require 'index.view.php';

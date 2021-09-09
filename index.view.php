@@ -15,10 +15,18 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>
-            <?= $greeting; ?> <!-- aquí solo nos limitamos a mostrar la variable, separando claramente las tareas -->
-        </h1>
-    </header>
+    <ul>
+        <!-- #1: Abrimos el foreach y metemos el html, cuesta escalar este código -->
+        <?php
+            foreach ($names as $name){
+                echo "<li>$name</li>";
+        }
+        ?>
+
+        <!-- #2 -->
+        <?php foreach ($names as $name): ?><!-- una para abrir, notar los dos pts -->
+            <li><?= $name ?></li> <!-- html. Php solo cuando se lo necesite -->
+        <?php endforeach ?> <!-- el cierre -->
+    </ul>
 </body>
 </html>
