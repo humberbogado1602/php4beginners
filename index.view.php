@@ -15,10 +15,23 @@
     </style>
 </head>
 <body>
+    <h1>Task list!</h1>
+
     <ul>
-        <?php foreach($person as $key => $feature): ?> <!-- así referenciamos la clave valor, si deseamos mostrar ambas. Sino, mostraría solo valor -->
-            <li><strong><?= $key ?></strong> <?= $feature ?></li>
-        <?php endforeach ?>
+        <li>
+            <strong>Task</strong>: <?= $task['title']; ?>
+        </li>
+        <li>
+            <strong>Due date</strong>: <?= $task['due']; ?>
+        </li>
+        <li>
+            <strong>Assinged to</strong>: <?= $task['assigned_to']; ?>
+        </li>
+        <li>
+            <!-- Operador ternario -->
+            <!-- true? 'Do smth' : 'Do smth else' -->
+            <strong>Completed</strong>: <?= $task['completed']? 'Yes': 'No'; ?>
+        </li>
     </ul>
 </body>
 </html>
