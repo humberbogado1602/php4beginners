@@ -28,9 +28,13 @@
             <strong>Assinged to</strong>: <?= $task['assigned_to']; ?>
         </li>
         <li>
-            <!-- Operador ternario -->
-            <!-- true? 'Do smth' : 'Do smth else' -->
-            <strong>Completed</strong>: <?= $task['completed']? 'Yes': 'No'; ?>
+            <strong>Status:</strong>
+            <?php if($task['completed']): //if(! true) for the contrary of..?> 
+                <span>&#9989;</span>
+            <?php else: ?>
+                <span>&#10060;</span>
+            <?php endif; ?>
+
         </li>
     </ul>
 </body>
