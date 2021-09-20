@@ -1,11 +1,15 @@
 <?php 
 
-// title, due, assigned_to, completed
-$task = [
-    'title' => 'go to the grocery',
-    'due' => 'tomorrow',
-    'assigned_to' => 'Humberto',
-    'completed' => false
-];
+//separamos las funciones, en su propio archivo
+//luego del require podemos usar las funciones que contiene ese fichero
+require 'functions.php';
 
-require 'index.view.php';
+$animals = ['cat', 'dog', 'duck'];
+
+// dd($animals); //comentada porque voy a poner la tarea abajo
+
+if (allowedAge(19)) {
+    echo "You're allowed, come on inside!";
+}else{
+    echo "You're not allowed, sorry";
+}
