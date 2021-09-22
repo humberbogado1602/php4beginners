@@ -17,25 +17,17 @@
 <body>
     <h1>Task list!</h1>
 
+    <!-- Iteramos el arreglo y mostramos tareas, la que está completada se muestra tachada, fin. -->
     <ul>
-        <li>
-            <strong>Task</strong>: <?= $task['title']; ?>
-        </li>
-        <li>
-            <strong>Due date</strong>: <?= $task['due']; ?>
-        </li>
-        <li>
-            <strong>Assinged to</strong>: <?= $task['assigned_to']; ?>
-        </li>
-        <li>
-            <strong>Status:</strong>
-            <?php if($task['completed']): //if(! true) for the contrary of..?> 
-                <span>&#9989;</span>
-            <?php else: ?>
-                <span>&#10060;</span>
-            <?php endif; ?>
-
-        </li>
+        <?php foreach($tasks as $task): ?>
+            <li>
+                <?php if($task->completed): ?>
+                    <del><?= $task->description; ?></del> <!-- del es un tag para tachar -->
+                <?php else: ?>
+                    <?= $task->description; ?>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </body>
 </html>
