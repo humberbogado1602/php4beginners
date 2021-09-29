@@ -17,6 +17,13 @@
 <body>
     <h1>Task list!</h1>
 
+    <nav>
+        <ul>
+            <li><a href="views/about.view.php">About page</a></li>
+            <li><a href="views/contact.view.php">Contact page</a></li>
+        </ul>
+    </nav>
+
     <!-- Iteramos el arreglo y mostramos tareas, la que está completada se muestra tachada, fin. -->
     <ul>
         <?php foreach($tasks as $task): ?>
