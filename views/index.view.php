@@ -1,40 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        header{
-            background-color: #3e3e3e;
-            color: aliceblue;
-            padding: 2em;
-            text-align: center
-        }
-    </style>
-</head>
-<body>
-    <h1>Task list!</h1>
+<?php require('partials/head.php') ?> <!-- traemos el primer partial -->
+<!-- código específico del index, abajo  -->
+<h1>Task list!</h1>
 
-    <nav>
-        <ul>
-            <li><a href="views/about.view.php">About page</a></li>
-            <li><a href="views/contact.view.php">Contact page</a></li>
-        </ul>
-    </nav>
+<!-- Iteramos el arreglo y mostramos tareas, la que está completada se muestra tachada, fin. -->
+<ul>
+    <?php foreach($tasks as $task): ?>
+        <li>
+            <?php if($task->completed): ?>
+                <del><?= $task->description; ?></del> <!-- del es un tag para tachar -->
+            <?php else: ?>
+                <?= $task->description; ?>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+</ul>
 
-    <!-- Iteramos el arreglo y mostramos tareas, la que está completada se muestra tachada, fin. -->
-    <ul>
-        <?php foreach($tasks as $task): ?>
-            <li>
-                <?php if($task->completed): ?>
-                    <del><?= $task->description; ?></del> <!-- del es un tag para tachar -->
-                <?php else: ?>
-                    <?= $task->description; ?>
-                <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-</body>
-</html>
+<?php require('partials/footer.php') ?> <!-- cierre del documento -->
