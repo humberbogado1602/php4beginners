@@ -4,4 +4,4 @@
 require 'core/bootsrap.php';
 
 require Router::load('routes.php')
- ->direct(Request::uri());
+ ->direct(Request::uri(), Request::requestType());
