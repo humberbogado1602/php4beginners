@@ -1,0 +1,8 @@
+{
+	"_comment": "Aquí vamos a incluir un autoloader para no usar más require",
+	"autoload": {
+		"classmap": [
+			"./"
+		]
+	}
+}
