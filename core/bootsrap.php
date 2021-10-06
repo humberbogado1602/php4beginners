@@ -1,11 +1,11 @@
 <?php 
 
-$app = [];
+//nuevo met, vamos a enlazar config con el archivo de configuración
+App::bind('config', require 'config.php');
 
-$app['config'] = require 'config.php';
+$config = App::get('config');
 
-//ya no necesito mil requires aca, todo lo hace el autoloader en index
-
-$app['database'] = new QueryBuilder(
-    Connection::make($app['config']['database'])
-);
+//lo mismo acá
+App::bind('database', new QueryBuilder(
+    Connection::make(App::get('config')['database'])
+));
