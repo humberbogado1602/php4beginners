@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use Exception;
+
 class Router  
 {
     // esta separacion esta hecha para que no se pueda acceder a las uri de post desde la barra de navegacion, accederemos desde dnd corresponda
