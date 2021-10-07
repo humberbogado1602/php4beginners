@@ -40,7 +40,5 @@ class QueryBuilder
         } catch (Exception $e) {
             die('An error has ocurred');
         }
-
-        header('Location: home');
     }
 }

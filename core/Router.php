@@ -34,9 +34,26 @@ class Router
     {
         //sirve para buscar una clave en un arreglo, fun booleana
         if (array_key_exists($uri, $this->routes[$requestType])){
-            return $this->routes[$requestType][$uri];
+            return $this->callAction( //nuevo método interno que llama al controlador y acción indicada
+                //explode: sirve para formar un arreglo de tantos elementos como cantidad de veces el separador sea encontrado
+                // ... si se tiene un arreglo, sirve para que cada elemento del arreglo sea un parámetro que se pasa a la función
+                ...explode('@',$this->routes[$requestType][$uri])
+            );
         }
         throw new Exception("No route define for this URI");
         
+    }
+    
+    protected function callAction($controller, $action)
+    {
+        $controller = new $controller;
+
+        if (! method_exists($controller, $action)) {
+            throw new Exception(
+                "{$controller} does not respond to {$action} action"
+            );
+        }
+
+        return $controller->$action();
     }
 }
