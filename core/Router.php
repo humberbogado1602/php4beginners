@@ -1,5 +1,7 @@
 <?php 
 
+namespace App\Core;
+
 class Router  
 {
     // esta separacion esta hecha para que no se pueda acceder a las uri de post desde la barra de navegacion, accederemos desde dnd corresponda
@@ -46,6 +48,8 @@ class Router
     
     protected function callAction($controller, $action)
     {
+        $controller = "App\\Controllers\\{$controller}"; //una barra inv -> escape de caracteres, si no queremos eso usamos \\ como en acá
+
         $controller = new $controller;
 
         if (! method_exists($controller, $action)) {

@@ -1,5 +1,7 @@
 <?php 
 
+use App\Core\App; //referencia a que usamos la clase App, tb se puede hacer sin use y referenciar en cada parte que diga App, sería menos claro que esto
+
 //nuevo met, vamos a enlazar config con el archivo de configuración
 App::bind('config', require 'config.php');
 
@@ -15,7 +17,7 @@ function view($name, $data=[])
 {
     extract($data);
 
-    return require "views/{$name}.view.php";
+    return require "app/views/{$name}.view.php";
 }
 
 function redirect($path){
